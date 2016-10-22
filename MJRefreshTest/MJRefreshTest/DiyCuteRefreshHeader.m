@@ -38,6 +38,14 @@
         
         _cuteView.startPoint = CGPointMake(0, 0);
         _cuteView.endPoint = CGPointMake(0, 0);
+//        _cuteView.backgroundColor = [UIColor blackColor];
+        
+        UIFont *iconfont = [UIFont fontWithName:@"iconfont" size: 20];
+        _cuteView.titleLabel.font = iconfont;
+        UILabel* titleLabel = _cuteView.titleLabel;
+        titleLabel.text = @"\U0000e652";// \U0000e66d
+        
+        _cuteView.titlePadding = 5;
     }
     return _cuteView;
 }

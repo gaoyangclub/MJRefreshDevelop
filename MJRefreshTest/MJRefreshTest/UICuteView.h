@@ -19,4 +19,7 @@
 // viscosity of the bubble,the bigger you set,the longer you drag
 @property(nonatomic, assign) CGFloat viscosity;
 
+@property(nonatomic,retain,readonly)UILabel* titleLabel;
+@property(nonatomic, assign) CGFloat titlePadding;
+
 @end

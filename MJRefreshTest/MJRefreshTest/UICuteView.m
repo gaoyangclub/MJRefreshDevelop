@@ -29,6 +29,7 @@
 @property(nonatomic,retain)CAShapeLayer *drawLayer;
 //@property(nonatomic,retain)CAShapeLayer *frontLayer;
 //@property(nonatomic,retain)CAShapeLayer *backLayer;
+@property(nonatomic,retain)UILabel* titleLabel;
 
 @end
 
@@ -42,10 +43,27 @@
 }
 */
 
+-(UILabel *)titleLabel{
+    if (!_titleLabel) {
+        _titleLabel = [[UILabel alloc]init];
+        _titleLabel.numberOfLines = 0;
+//        _titleLabel.text = @"\U000F0034 \U0000e66d";
+        
+        _titleLabel.textAlignment = NSTextAlignmentCenter;
+//        _titleLabel.font = [UIFont systemFontOfSize:16];
+        _titleLabel.adjustsFontSizeToFitWidth = YES;
+        _titleLabel.textColor = [UIColor whiteColor];
+//        _titleLabel.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+//        [self addSubview:_titleLabel];
+//        _titleLabel.text = @"10";
+    }
+    return _titleLabel;
+}
+
 -(CAShapeLayer *)drawLayer{
     if (!_drawLayer) {
         _drawLayer = [[CAShapeLayer alloc]init];
-        [self.layer addSublayer:_drawLayer];
+//        [self.layer addSublayer:_drawLayer];
     }
     return _drawLayer;
 }
@@ -104,7 +122,11 @@
 
 
 -(void)prepare{
-    self.drawLayer.hidden = NO;
+    [self.layer addSublayer:self.drawLayer];
+    
+    [self addSubview:self.titleLabel];
+    
+//    self.drawLayer.hidden = NO;
 //    self.backLayer.hidden = YES;
 //    self.frontLayer.hidden = YES;
 }
@@ -122,6 +144,8 @@
     } else {
         cosDigree = (y2 - y1) / centerDistance;
         sinDigree = (x2 - x1) / centerDistance;
+        cosDigree = [self checkRadianValue:cosDigree];
+        sinDigree = [self checkRadianValue:sinDigree];
     }
     
     r1 = self.frame.size.width / 2 - centerDistance / self.viscosity;
@@ -137,6 +161,13 @@
                          pointB.y + (centerDistance / 2) * cosDigree);
     
     [self drawLayerPath];
+}
+
+-(CGFloat)checkRadianValue:(CGFloat)value{
+    if (fabs(value) > 1) {//超出最大范围
+        return value > 0 ? 1 : -1;
+    }
+    return value;
 }
 
 - (void)drawLayerPath {
@@ -155,7 +186,15 @@
 //    self.backLayer.lineWidth = 1;
 //    self.backLayer.strokeColor = strokeColor;
     
-    CGFloat digree = acos(cosDigree);
+    CGFloat titleR = r2 - self.titlePadding;
+    
+    self.titleLabel.frame = CGRectMake(self.endPoint.x + self.drawLayer.position.x - titleR, self.endPoint.y + self.drawLayer.position.y - titleR, titleR * 2, titleR * 2);
+    
+    CGFloat digree = acosl(cosDigree);
+//    if (isnan(digree)) {
+////        NSLog(@"digree:%f",digree);
+//        digree = M_PI;
+//    }
     
     UIBezierPath* cutePath = [UIBezierPath bezierPath];
     [cutePath moveToPoint:pointA];

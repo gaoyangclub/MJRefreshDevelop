@@ -38,6 +38,7 @@
 		84F9E4C31DAF664200A3E635 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9E4AF1DAF664200A3E635 /* UIView+MJExtension.m */; };
 		84F9E4C61DAF666900A3E635 /* MJTableBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9E4C51DAF666900A3E635 /* MJTableBaseView.m */; };
 		84FB4A141DB75AC100823DEC /* UICuteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FB4A131DB75AC100823DEC /* UICuteView.m */; };
+		A9D43CA31DBB2EFD00937123 /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9D43CA21DBB2EF400937123 /* iconfont.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +103,7 @@
 		84F9E4C51DAF666900A3E635 /* MJTableBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJTableBaseView.m; sourceTree = "<group>"; };
 		84FB4A121DB75AC100823DEC /* UICuteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICuteView.h; sourceTree = "<group>"; };
 		84FB4A131DB75AC100823DEC /* UICuteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICuteView.m; sourceTree = "<group>"; };
+		A9D43CA21DBB2EF400937123 /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 		8483C1401DADDF1600EDB017 /* MJRefreshTest */ = {
 			isa = PBXGroup;
 			children = (
+				A9D43C931DBB2AEA00937123 /* iconfont */,
 				84F9E4801DAF661E00A3E635 /* MJTableBase */,
 				8483C1441DADDF1600EDB017 /* AppDelegate.h */,
 				8483C1451DADDF1600EDB017 /* AppDelegate.m */,
@@ -270,6 +273,14 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
+		A9D43C931DBB2AEA00937123 /* iconfont */ = {
+			isa = PBXGroup;
+			children = (
+				A9D43CA21DBB2EF400937123 /* iconfont.ttf */,
+			);
+			path = iconfont;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -327,6 +338,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9D43CA31DBB2EFD00937123 /* iconfont.ttf in Resources */,
 				8483C1511DADDF1600EDB017 /* LaunchScreen.storyboard in Resources */,
 				8483C14E1DADDF1600EDB017 /* Assets.xcassets in Resources */,
 				84F9E4BE1DAF664200A3E635 /* MJRefresh.bundle in Resources */,
