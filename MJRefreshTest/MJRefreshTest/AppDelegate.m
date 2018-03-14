@@ -49,8 +49,8 @@
     [self.window makeKeyAndVisible];
     self.window.rootViewController =
 //    [[ViewController alloc] init];
-//    [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] init]];
-    [self createNormalTabBar];
+    [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] init]];
+//    [self createNormalTabBar];
     
     return YES;
 }

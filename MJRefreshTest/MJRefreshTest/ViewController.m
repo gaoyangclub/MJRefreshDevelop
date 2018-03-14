@@ -10,6 +10,7 @@
 #import "MJRefresh.h"
 #import "UICuteView.h"
 #import "DiyCuteRefreshHeader.h"
+#import "DiyRotateRefreshHeader.h"
 
 @interface TestTableViewCell : MJTableViewCell
 
@@ -47,6 +48,7 @@
 
 -(MJRefreshHeader *)getHeader{
     return [[DiyCuteRefreshHeader alloc]init];
+//    return [[DiyRotateRefreshHeader alloc]init];
 }
 
 - (void)viewDidLoad {

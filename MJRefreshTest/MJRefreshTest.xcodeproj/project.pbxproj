@@ -11,6 +11,7 @@
 		840362B51DB4CC5300FD6DA8 /* MJTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840362B41DB4CC5300FD6DA8 /* MJTableViewController.m */; };
 		84408E8E1DB86A03001DCA82 /* DiyCuteRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 84408E8D1DB86A03001DCA82 /* DiyCuteRefreshHeader.m */; };
 		84532C591DB078DA00359CE6 /* MJTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84532C581DB078DA00359CE6 /* MJTableViewCell.m */; };
+		8472882E1FE221470020C0D9 /* DiyRotateRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8472882D1FE221470020C0D9 /* DiyRotateRefreshHeader.m */; };
 		8483C1431DADDF1600EDB017 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8483C1421DADDF1600EDB017 /* main.m */; };
 		8483C1461DADDF1600EDB017 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8483C1451DADDF1600EDB017 /* AppDelegate.m */; };
 		8483C1491DADDF1600EDB017 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8483C1481DADDF1600EDB017 /* ViewController.m */; };
@@ -50,6 +51,8 @@
 		84408E8D1DB86A03001DCA82 /* DiyCuteRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiyCuteRefreshHeader.m; sourceTree = "<group>"; };
 		84532C571DB078DA00359CE6 /* MJTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJTableViewCell.h; sourceTree = "<group>"; };
 		84532C581DB078DA00359CE6 /* MJTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJTableViewCell.m; sourceTree = "<group>"; };
+		8472882C1FE221470020C0D9 /* DiyRotateRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiyRotateRefreshHeader.h; sourceTree = "<group>"; };
+		8472882D1FE221470020C0D9 /* DiyRotateRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiyRotateRefreshHeader.m; sourceTree = "<group>"; };
 		8483C13E1DADDF1600EDB017 /* MJRefreshTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MJRefreshTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8483C1421DADDF1600EDB017 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8483C1441DADDF1600EDB017 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -150,6 +153,8 @@
 				84FB4A131DB75AC100823DEC /* UICuteView.m */,
 				84408E8C1DB86A03001DCA82 /* DiyCuteRefreshHeader.h */,
 				84408E8D1DB86A03001DCA82 /* DiyCuteRefreshHeader.m */,
+				8472882C1FE221470020C0D9 /* DiyRotateRefreshHeader.h */,
+				8472882D1FE221470020C0D9 /* DiyRotateRefreshHeader.m */,
 			);
 			path = MJRefreshTest;
 			sourceTree = "<group>";
@@ -312,6 +317,7 @@
 				TargetAttributes = {
 					8483C13D1DADDF1600EDB017 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = XZATG76F8M;
 					};
 				};
 			};
@@ -376,6 +382,7 @@
 				840362B51DB4CC5300FD6DA8 /* MJTableViewController.m in Sources */,
 				8483C1431DADDF1600EDB017 /* main.m in Sources */,
 				84F9E4BF1DAF664200A3E635 /* MJRefreshConst.m in Sources */,
+				8472882E1FE221470020C0D9 /* DiyRotateRefreshHeader.m in Sources */,
 				84F9E4B91DAF664200A3E635 /* MJRefreshBackNormalFooter.m in Sources */,
 				84F9E4BD1DAF664200A3E635 /* MJRefreshStateHeader.m in Sources */,
 				84532C591DB078DA00359CE6 /* MJTableViewCell.m in Sources */,
@@ -433,7 +440,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -471,7 +478,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
