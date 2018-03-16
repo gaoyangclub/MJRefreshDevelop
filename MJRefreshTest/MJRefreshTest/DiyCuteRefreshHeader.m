@@ -89,10 +89,9 @@
 
 //    NSLog(@"contentOffset:%f",self.scrollView.contentOffset.y);
     
-    if (self.scrollView.contentOffset.y < 0) {
-        if (-self.scrollView.contentOffset.y > CGRectGetHeight(self.bounds)) {
-            
-            self.cuteView.endPoint = CGPointMake(0, self.scrollView.contentOffset.y + CGRectGetHeight(self.bounds));
+    if (_scrollViewOriginalInset.top + self.scrollView.mj_offsetY < 0) {
+        if (_scrollViewOriginalInset.top + self.scrollView.mj_offsetY < -CGRectGetHeight(self.bounds)) {
+            self.cuteView.endPoint = CGPointMake(0, _scrollViewOriginalInset.top + self.scrollView.mj_offsetY + CGRectGetHeight(self.bounds));
         }else{
             self.cuteView.endPoint = CGPointMake(0, 0);
         }

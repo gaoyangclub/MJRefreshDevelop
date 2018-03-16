@@ -91,7 +91,7 @@
     
     if (_scrollView.panGestureRecognizer.state == UIGestureRecognizerStateEnded) {// 手松开
         if (_scrollView.mj_insetT + _scrollView.mj_contentH <= _scrollView.mj_h) {  // 不够一个屏幕
-            if (_scrollView.mj_offsetY >= - _scrollView.mj_insetT) { // 向上拽
+            if (_scrollView.mj_contentH > 0 && _scrollView.mj_offsetY >= - _scrollView.mj_insetT) { //有数据(mj_contentH > 0) 且 向上拽
                 [self beginRefreshing];
             }
         } else { // 超出一个屏幕
@@ -107,10 +107,11 @@
     MJRefreshCheckState
     
     if (state == MJRefreshStateRefreshing) {
+        __weak __typeof(self) weakSelf = self;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self executeRefreshingCallback];
+            [weakSelf executeRefreshingCallback];
         });
-    } else if (state == MJRefreshStateNoMoreData || state == MJRefreshStateIdle) {
+    } else if (self.isIdle) {
         if (MJRefreshStateRefreshing == oldState) {
             if (self.endRefreshingCompletionBlock) {
                 self.endRefreshingCompletionBlock();

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MJRefresh.h"
 #import "MJTableViewCell.h"
-#import "MJTableViewHeader.h"
+#import "MJTableViewSection.h"
 
 
 @class CellVo;
@@ -26,6 +26,15 @@ typedef void(^FooterLoadMoreHandler)(BOOL hasData);
 -(void)footerLoadMore:(FooterLoadMoreHandler)handler;
 @optional
 -(void)didSelectRow:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+@optional
+-(void)didScrollToRow:(NSIndexPath *)indexPath;
+@optional
+-(void)didEndScrollingAnimation;
+
+@optional
+-(void)didRefreshComplete;
+@optional
+-(void)didLoadMoreComplete;
 
 @end
 
@@ -48,7 +57,18 @@ typedef void(^FooterLoadMoreHandler)(BOOL hasData);
 
 @property(nonatomic,retain) MJRefreshHeader* header;
 
+@property(nonatomic,retain) NSIndexPath* selectedIndexPath;
+
 //@property (nonatomic,assign) BOOL pureTable;
+
+/**
+ *  点中cell高亮
+ */
+@property (nonatomic,assign) BOOL clickCellHighlight;
+/**
+ *  点中cell自动居中
+ */
+@property (nonatomic,assign) BOOL clickCellMoveToCenter;
 /**
  *  每一节间隔
  */
@@ -78,9 +98,32 @@ typedef void(^FooterLoadMoreHandler)(BOOL hasData);
  *  @param sourceVo
  */
 -(void)addSource:(SourceVo*)sourceVo;
+/**
+ *  在某个索引插入一节内容
+ *  @param sourceVo
+ */
+-(void)insertSource:(SourceVo*)sourceVo atIndex:(NSInteger)index;
+/**
+ *  删除一节内容
+ *  @param sourceVo
+ */
+-(void)removeSourceAt:(NSInteger)index;
+/**
+ *  重新刷新全部界面 类似源生的reloadData
+ */
+-(void)reloadMJData;
+/**
+ *  将选中的数据项平滑居中移动
+ */
+-(void)moveSelectedIndexPathToCenter;
 
 -(SourceVo*)getLastSource;
 -(SourceVo*)getFirstSource;
+
+-(SourceVo*)getSourceByIndex:(NSInteger)index;
+-(CellVo*)getCellVoByIndexPath:(NSIndexPath*)indexPath;
+-(NSUInteger)getSourceCount;
+-(NSUInteger)getTotalCellCount;
 
 @end
 
@@ -92,7 +135,7 @@ typedef void(^FooterLoadMoreHandler)(BOOL hasData);
 @property (nonatomic,retain)NSMutableArray<CellVo*>* data;//数据源
 @property (nonatomic,assign)CGFloat headerHeight;
 @property (nonatomic,retain)Class headerClass;
-@property (nonatomic,retain)NSObject* headerData;//section标题数据
+@property (nonatomic,retain)id headerData;//section标题数据
 @property (nonatomic,assign)BOOL isUnique;
 
 -(NSInteger)getRealDataCount;
@@ -101,8 +144,8 @@ typedef void(^FooterLoadMoreHandler)(BOOL hasData);
 
 @interface CellVo : NSObject
 
-+ (instancetype)initWithParams:(CGFloat)cellHeight cellClass:(Class)cellClass cellData:(NSObject*)cellData;
-+ (instancetype)initWithParams:(CGFloat)cellHeight cellClass:(Class)cellClass cellData:(NSObject*)cellData cellTag:(NSInteger)cellTag isUnique:(BOOL)isUnique;
++ (instancetype)initWithParams:(CGFloat)cellHeight cellClass:(Class)cellClass cellData:(id)cellData;
++ (instancetype)initWithParams:(CGFloat)cellHeight cellClass:(Class)cellClass cellData:(id)cellData cellTag:(NSInteger)cellTag isUnique:(BOOL)isUnique;
 
 #define CELL_TAG_NORMAL 0 //中间的
 #define CELL_TAG_FIRST 1 //第一个
@@ -112,9 +155,10 @@ typedef void(^FooterLoadMoreHandler)(BOOL hasData);
 
 @property (nonatomic,assign)CGFloat cellHeight;
 @property (nonatomic,retain)Class cellClass;
-@property (nonatomic,retain)NSObject* cellData;
+@property (nonatomic,retain)id cellData;
 @property (nonatomic,assign)NSInteger cellTag;
 @property (nonatomic,assign)BOOL isUnique;
+@property (nonatomic,assign)BOOL isSelect;
 
 -(BOOL)isRealCell;
 

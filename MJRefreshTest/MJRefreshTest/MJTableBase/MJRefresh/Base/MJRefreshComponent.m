@@ -187,6 +187,11 @@
     return self.state == MJRefreshStateRefreshing || self.state == MJRefreshStateWillRefresh;
 }
 
+#pragma mark 是否处于闲置状态
+-(BOOL)isIdle{
+    return self.state == MJRefreshStateNoMoreData || self.state == MJRefreshStateIdle;
+}
+
 #pragma mark 自动切换透明度
 - (void)setAutoChangeAlpha:(BOOL)autoChangeAlpha
 {

@@ -13,6 +13,13 @@
 @end
 
 @implementation MJRefreshAutoNormalFooter
+
+//-(instancetype)initWithFrame:(CGRect)frame{
+//    self = [super initWithFrame:frame];
+//    self.stateLabel.text = @"";
+//    return self;
+//}
+
 #pragma mark - 懒加载子控件
 - (UIActivityIndicatorView *)loadingView
 {

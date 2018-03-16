@@ -53,7 +53,7 @@
 
 - (void)viewDidLoad {
     self.title = @"标题栏";
-    
+//    self.automaticallyAdjustsScrollViewInsets = NO;
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     

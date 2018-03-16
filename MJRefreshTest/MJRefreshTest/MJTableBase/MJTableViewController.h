@@ -15,11 +15,14 @@
 @property(nonatomic,assign)BOOL contentOffsetRest;
 @property(nonatomic,assign)BOOL autoRefreshHeader;
 
+@property(nonatomic,retain)NSIndexPath* selectedIndexPath;
+
 -(CGRect)getTableViewFrame;
 
 -(BOOL)getShowHeader;
 -(BOOL)getShowFooter;
 -(BOOL)getUseCellIdentifer;
+-(BOOL)getNeedRestOffset;
 -(MJRefreshHeader*)getHeader;
 
 @end

@@ -62,13 +62,17 @@ typedef void (^MJRefreshComponentEndRefreshingCompletionBlock)();
 - (void)beginRefreshingWithCompletionBlock:(void (^)())completionBlock;
 /** 开始刷新后的回调(进入刷新状态后的回调) */
 @property (copy, nonatomic) MJRefreshComponentbeginRefreshingCompletionBlock beginRefreshingCompletionBlock;
-/** 结束刷新的回调 */
+/** 将要结束刷新的回调（收缩动画开始） */
+@property (copy, nonatomic) MJRefreshComponentEndRefreshingCompletionBlock endRefreshingWillCompletionBlock;
+/** 结束刷新的回调（收缩动画结束) */
 @property (copy, nonatomic) MJRefreshComponentEndRefreshingCompletionBlock endRefreshingCompletionBlock;
 /** 结束刷新状态 */
 - (void)endRefreshing;
 - (void)endRefreshingWithCompletionBlock:(void (^)())completionBlock;
 /** 是否正在刷新 */
 - (BOOL)isRefreshing;
+/** 是否处于闲置状态 */
+- (BOOL)isIdle;
 /** 刷新状态 一般交给子类内部实现 */
 @property (assign, nonatomic) MJRefreshState state;
 

@@ -40,7 +40,12 @@
 
 -(void)setCellVo:(CellVo *)cellVo{
     _cellVo = cellVo;
-    [self setNeedsLayout];
+    CGFloat cellHeight = [self getCellHeight:CGRectGetWidth(self.tableView.bounds)];
+    if (cellHeight > 0) {
+        cellVo.cellHeight = cellHeight;
+    }else{
+        [self setNeedsLayout];
+    }
 }
 
 -(void)setData:(NSObject *)data{
@@ -57,6 +62,14 @@
 
 -(void)showSubviews {
 	
+}
+
+-(BOOL)showSelectionStyle{
+    return YES;
+}
+
+-(CGFloat)getCellHeight:(CGFloat)cellWidth{//坑爹 自动衡量的情况下宽度是不准的 需要获取父容器tableView的宽度衡量
+    return 0;
 }
 
 @end
