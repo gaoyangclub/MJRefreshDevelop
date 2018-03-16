@@ -7,6 +7,7 @@
 //
 
 #import "MJTableBaseView.h"
+#import "MJRefreshAutoFooterGY.h"
 
 @interface MJTableBaseView()<UITableViewDelegate,UITableViewDataSource>{//
     
@@ -183,7 +184,7 @@
         
         if (self.showFooter) {
             __weak __typeof(self) weakSelf = self;
-            MJRefreshAutoNormalFooter* footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            MJRefreshAutoNormalFooter* footer = [MJRefreshAutoFooterGY footerWithRefreshingBlock:^{
                 __strong typeof(weakSelf) strongSelf = weakSelf;
                 if (strongSelf.refreshDelegate && [strongSelf.refreshDelegate respondsToSelector:@selector(footerLoadMore:)]){
                     [strongSelf.refreshDelegate footerLoadMore:^(BOOL hasData){

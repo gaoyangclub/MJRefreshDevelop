@@ -86,17 +86,6 @@
     self.arrowView.tintColor = self.stateLabel.textColor;
 }
 
-//-(void)scrollViewContentOffsetDidChange:(NSDictionary *)change{
-//    [super scrollViewContentOffsetDidChange:change];
-//    
-//    CGPoint oldP = [[change objectForKey:@"old"]CGPointValue];
-//    CGPoint newP = [[change objectForKey:@"new"]CGPointValue];
-//    
-//    CGPoint arrowCenter = self.stateLabel.center;
-//    arrowCenter.y += newP.y - oldP.y;
-//    self.stateLabel.center = arrowCenter;
-//}
-
 - (void)setState:(MJRefreshState)state
 {
     MJRefreshCheckState

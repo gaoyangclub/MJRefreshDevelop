@@ -108,7 +108,8 @@
         insetT = insetT > self.mj_h + _scrollViewOriginalInset.top ? self.mj_h + _scrollViewOriginalInset.top : insetT;
         self.scrollView.mj_insetT = insetT;
         
-        self.insetTDelta = _scrollViewOriginalInset.top - insetT;
+        [self setValue:@(_scrollViewOriginalInset.top - insetT) forKey:@"insetTDelta"];
+//        self.insetTDelta = _scrollViewOriginalInset.top - insetT;
         return;
     }
     

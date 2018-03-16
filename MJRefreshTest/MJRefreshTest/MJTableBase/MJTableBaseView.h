@@ -11,6 +11,8 @@
 #import "MJTableViewCell.h"
 #import "MJTableViewSection.h"
 
+#import "MJRefreshComponent+GY.h"
+
 
 @class CellVo;
 @class SourceVo;
